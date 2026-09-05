@@ -1,17 +1,19 @@
-# Lead Finder — Vercel
-
-Site para buscar leads públicos no Google Maps sem API paga, usando Chromium headless dentro de uma Vercel Function.
+# Lead Finder — Vercel v1.0.1
 
 ## Publicar
-1. Crie um repositório no GitHub e envie todos estes arquivos.
-2. Na Vercel, clique em **Add New > Project**.
-3. Importe o repositório.
-4. Framework Preset: **Other**.
-5. Clique em **Deploy**.
+1. Envie **o conteúdo desta pasta** para a raiz do repositório GitHub.
+2. Na Vercel: Add New > Project > importe o repositório.
+3. Framework Preset: Other.
+4. Root Directory: deixe `./` (raiz).
+5. Build Command / Output Directory / Install Command: deixe no padrão, sem preencher manualmente.
+6. Não precisa de variável de ambiente.
+7. Clique em Deploy.
 
-Não precisa configurar chave de API nem variável de ambiente.
+## Estrutura esperada na raiz
+- index.html
+- package.json
+- vercel.json
+- api/search.js
 
-## Observações
-- O máximo da interface foi limitado a 20 leads por execução para reduzir chance de timeout.
-- Google pode bloquear requisições vindas de datacenters. Se isso acontecer, tente novamente; para uso pesado, um navegador/servidor persistente é mais confiável que serverless.
-- O botão de WhatsApp só aparece quando há telefone e já abre a mensagem pré-preenchida. Isso não confirma previamente se o número possui conta no WhatsApp.
+## Correção desta versão
+Removida a configuração `memory` do vercel.json. Em projetos Hobby com Fluid Compute a Vercel gerencia a memória da Function; definir memória manualmente no arquivo pode causar configuração incompatível/aviso de build.
